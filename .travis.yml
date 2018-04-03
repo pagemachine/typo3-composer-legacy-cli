@@ -1,0 +1,21 @@
+dist: trusty
+sudo: false
+language: php
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+install:
+  - composer install
+
+jobs:
+  include:
+    - php: 7.0
+      env: Lint
+      script:
+        - composer lint
+
+notifications:
+  slack:
+    secure: TPgLYBAyIa6V6RT3YqndCnpkiifnY01ehmPrhVHU3G3yC4e4PtnqftgCrg8D4IBbmlVTxncNbsDqNbFfBEaJ1dMv6tv0yMpYlllfN5Syl3nBcjh43rHN4DWEffgJ59dAhJJtWjHvPfYR1/80EdKzsmepQl1i1+CXH1ryxtS6jEU=

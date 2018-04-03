@@ -1,0 +1,45 @@
+{
+    "name": "pagemachine/typo3-composer-legacy-cli",
+    "description": "Provides the legacy cli_dispatch.phpsh entry point for TYPO3",
+    "type": "library",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Mathias Brodala",
+            "email": "mbrodala@pagemachine.de"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "typo3/cms-composer-installers": "^1.4 || ^2.0"
+    },
+    "require-dev": {
+        "composer/composer": "^1.6",
+        "cakephp/cakephp-codesniffer": "^3.0",
+        "friendsofphp/php-cs-fixer": "^2.11",
+        "jakub-onderka/php-console-highlighter": "^0.3.2",
+        "jakub-onderka/php-parallel-lint": "^1.0",
+        "phpstan/phpstan": "^0.9.2",
+        "slevomat/coding-standard": "^4.0",
+        "squizlabs/php_codesniffer": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pagemachine\\ComposerLegacyCli\\": "src"
+        }
+    },
+    "extra": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "analyze:php": "phpstan analyse --ansi --no-progress --level=7 src",
+        "lint:php": "parallel-lint --exclude bin --exclude vendor --exclude web .",
+        "lint:style": "phpcs",
+        "fix:style": "phpcbf",
+        "lint": [
+            "@lint:php",
+            "@lint:style",
+            "@analyze:php"
+        ]
+    }
+}
