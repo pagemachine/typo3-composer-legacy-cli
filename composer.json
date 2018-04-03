@@ -11,7 +11,8 @@
     ],
     "require": {
         "php": "^7.0",
-        "typo3/cms-composer-installers": "^1.4 || ^2.0"
+        "typo3/cms-composer-installers": "^1.4 || ^2.0",
+        "typo3/cms-backend": "^7.6 || ^8.7"
     },
     "require-dev": {
         "composer/composer": "^1.6",
@@ -29,7 +30,11 @@
         }
     },
     "extra": {
-        "sort-packages": true
+        "sort-packages": true,
+        "typo3/cms": {
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "web-dir": "web"
+        }
     },
     "scripts": {
         "analyze:php": "phpstan analyse --ansi --no-progress --level=7 src",
