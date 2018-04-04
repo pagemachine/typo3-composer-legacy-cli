@@ -40,8 +40,8 @@ class LegacyCliEntryPoint implements InstallerScript
     {
         $composer = $event->getComposer();
         $pluginConfig = Config::load($composer);
-        $webDir = $pluginConfig->get('web-dir');
-        $scriptPath = $webDir . '/typo3/cli_dispatch.phpsh';
+        $rootDir = $pluginConfig->get('root-dir');
+        $scriptPath = $rootDir . '/typo3/cli_dispatch.phpsh';
 
         $autoloadFile = $composer->getConfig()->get('vendor-dir') . '/autoload.php';
         $autoloadPath = $this->filesystem->findShortestPathCode($scriptPath, $autoloadFile);
